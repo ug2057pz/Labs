@@ -1,0 +1,19 @@
+'''Part 2: List of classes
+
+Write a program that asks for the names of all of the classes you are taking this semester
+Save these class names in a list.
+Print all the items in the list, one per line.'''
+
+class_List = []  #empty class list
+
+name = input("Enter the name of the class or (empty to exit): ") #ask user to inpute class or "" emtpy to exit
+
+while name!="": #use while loop
+    class_List.append(name)
+
+name = input("Enter name of class(empty to exit): ") #ask user to inpute class or "" emtpy to exit
+
+print("\nNames of all classes entered is:") #print names of classes in list
+
+for class_name in class_List:  # use for loop
+    print(class_name) #print class name
