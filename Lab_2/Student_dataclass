@@ -1,0 +1,24 @@
+from dataclasses import dataclass
+
+@dataclass
+class Student:
+    name: str
+    college_id: int
+    gpa: float
+    #student class with name, college_id and gpa as attributes
+
+def main():
+    student1 = Student("Jane Smith", 123456, 3.5)
+    student2 = Student("John Doe", 654321, 4.0)
+    #creating two student objects and initializing their attributes
+
+    print(student1.name)
+    print(student1.college_id)
+    print(student1.gpa)
+    #printing the attributes of the student object
+    print(student1)
+    #printing the student object
+
+
+if __name__ == "__main__":
+    main()

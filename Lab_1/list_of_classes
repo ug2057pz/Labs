@@ -4,16 +4,16 @@ Write a program that asks for the names of all of the classes you are taking thi
 Save these class names in a list.
 Print all the items in the list, one per line.'''
 
-class_List = []  #empty class list
+namesList = []
 
-name = input("Enter the name of the class or (empty to exit): ") #ask user to inpute class or "" emtpy to exit
+name = input("Enter name of class(empty to exit): ")
 
-while name!="": #use while loop
-    class_List.append(name)
+while name!="":
+    namesList.append(name)
 
-name = input("Enter name of class(empty to exit): ") #ask user to inpute class or "" emtpy to exit
+#name = input("Enter name of class(empty to exit): ")
 
-print("\nNames of all classes entered is:") #print names of classes in list
+print("\nNames of all classes entered is:")
 
-for class_name in class_List:  # use for loop
-    print(class_name) #print class name
+for class_name in namesList:
+    print(class_name)

@@ -1,0 +1,23 @@
+class Author:
+    def __init__(self, name):
+        self.name = name
+        self.books = set() # create an empty set attribute to store the books
+    def publish(self, title):
+        self.books.add(title) #add the title to the set which will automatically eliminate duplicates
+    def __str__(self):
+        book_titles = ', '.join(self.books)
+        return f"Author {self.name} has published {book_titles}."
+
+def main():
+    author1 = Author("Jane Smith")
+    author1.publish("Book 1")
+    author1.publish("Book 2")
+
+    author2 = Author("John Doe")
+    author2.publish("Book 3")
+
+    print(author1)
+    print(author2)
+
+if __name__ == "__main__":
+    main()
