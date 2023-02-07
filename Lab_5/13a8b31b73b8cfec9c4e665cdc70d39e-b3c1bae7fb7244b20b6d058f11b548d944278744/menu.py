@@ -41,6 +41,7 @@ db = 'records_db.sqlite'
 def create_table():
     with sqlite3.connect('records_db.sqlite') as conn:
         conn.execute ('''CREATE TABLE IF NOT EXISTS records (name TEXT, country TEXT, num_catches INTEGER)''')
+    
     conn.close()
 
 # Insert data into the table 
@@ -54,6 +55,7 @@ def insert_data():
     
 def display_all_records():
         with sqlite3.connect('records_db.sqlite') as conn:
+
             results = conn.execute("SELECT name, country, num_catches FROM records")
         for row in results:
             print('Name: {}, Country: {}, Number of Catches: {}'.format(row[0], row[1], row[2]))
@@ -66,16 +68,19 @@ def search_by_name(name):
     with sqlite3.connect('records_db.sqlite') as conn:
         results = conn.execute("SELECT name, country, num_catches FROM records WHERE name=?", (name,))
     row = results.fetchone()
+
     if row:
        print('Name: {}, Country: {}, Number of Catches: {}'.format(row[0], row[1], row[2]))
     else:
        print('Record not found')
+
     conn.close
 
 def add_new_record():
     name = input('Enter name: ')
     country = input('Enter country: ')
     num_catches = input('Enter number of catches: ')
+
     with sqlite3.connect('records_db.sqlite') as conn:
         conn.execute(f'INSERT INTO records VALUES (?, ?, ?)', (name, country, num_catches))
     conn.close()
@@ -85,6 +90,7 @@ def edit_existing_record():
    with sqlite3.connect('records_db.sqlite') as conn:
         results = conn.execute("SELECT name, country, num_catches FROM records WHERE name=?", (name,))
    row = results.fetchone()
+
    if row:
        country = input('Enter new country ({}): '.format(row[1]))
        num_catches = input('Enter new number of catches ({}): '.format(row[2]))
@@ -93,6 +99,7 @@ def edit_existing_record():
    else:
        print('Record not found')
        conn.close
+
 def delete_record():
     name = input('Enter name of record to delete: ')
     with sqlite3.connect('records_db.sqlite') as conn:
